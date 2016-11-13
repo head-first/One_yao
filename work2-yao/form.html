@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>表单验证</h1>
+		<from id="form" method="POST">
+		    <label>名称</label>
+			<input type="text" id="in">
+			<button type="button" onclick="myFunction()">提交</button>
+            <p id="demo">必填，长度为4~16个字符</p>
+		</from>
+<script>
+   function myFunction(){
+		t=document.getElementById("demo").value;
+		var x=document.getElementById("in").value;
+		var len=x.length;         
+       /* var patten= new RegExp(/^[\u4e00-\u9fa5]{2,8}$|^[\dA-Za-z_]{4,16}$/);*/   
+       //判断不能为空 
+		if(x=null||x=="")
+		{
+			t="姓名不能为空";
+			 document.getElementById("demo").innerHTML=t;
+			 document.x.focus();
+			 return false;
+		}
+		//判断长度在4~16之外的
+	  if(len<4||len>16){
+	    t="需填长度为4~16个字符";
+	    document.getElementById("demo").innerHTML=t;
+	    document.x.focus();
+	    return false;
+	}
+	//判断长度在4~16的
+	 if(len>=4||len<=16){
+	    t="名称格式正确";
+	    document.getElementById("demo").innerHTML=t;
+	    document.x.focus();
+	    return false;
+	}
+
+}
+
+/*function isCheck(str){ 
+var reg = /^[\u4e00-\u9fa5]{2,8}$|^[\dA-Za-z_0-9]{4,16}$/; 
+if(!reg.test(str)){ 
+return false; 
+} 
+return true; 
+} */
+
+</script>
+
+	</body>
+</html>
